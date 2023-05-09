@@ -1,0 +1,145 @@
+{
+    "position": "top", // (top|bottom|left|right)
+    //"height": 30,
+    "spacing": 0, // Gaps between modules (px)
+    "modules-left": ["clock", "battery", "backlight", "network", "pulseaudio", "sway/language"], // TODO: add song playing
+    "modules-center": ["sway/workspaces"],
+    "modules-right": ["memory", "cpu", "temperature", "custom/disk"],
+    // Modules configuration
+    "sway/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": true,
+         "format": "{icon}",
+         "format-icons": {
+             "1": "<span size='100%' rise='-1500'></span>",
+             "2": "<span size='150%' rise='-1500'></span>",
+             "3": "<span size='125%' rise='-1500'></span>",
+             "4": "<span size='115%' rise='-1500'></span>",
+             "5": "<span size='135%' rise='-1500'>󱉟</span>",
+             "6": "<span size='115%' rise='-1500'></span>",
+             "urgent": "",
+             "focused": "",
+             "default": ""
+         },
+	 "persistent_workspaces": {
+	     "1": [],
+	     "2": [],
+	     "3": [],
+	     "4": [],
+             "5": [],
+             "6": []
+	 }
+     },
+     "sway/window": {
+        "format": "{title}",
+        "max-length": 50,
+        "rewrite": {
+            "(.*) - Chromium": "  $1",
+            "master@margarita:(.*)": "  $1"
+        }
+    },
+    "sway/language": {
+        "format": "<span size='100%' rise='5000'>{}</span>"
+    },
+    "custom/disk": {
+        "exec": "waybar_disk",
+        "restart-interval": 60,
+	"return-type": "json",
+	"format": "<span size='135%' rise='-1500'></span>  {}"
+    },
+//    "mpd": {
+//       "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+//        "format-disconnected": "Disconnected ",
+//        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+//        "unknown-tag": "N/A",
+//        "interval": 2,
+//        "consume-icons": {
+//           "on": " "
+//        },
+//        "random-icons": {
+//            "off": "<span color=\"#f53c3c\"></span> ",
+//            "on": " "
+//        },
+//        "repeat-icons": {
+//            "on": " "
+//        },
+//        "single-icons": {
+//            "on": "1 "
+//        },
+//        "state-icons": {
+//            "paused": "",
+//            "playing": ""
+//        },
+//        "tooltip-format": "MPD (connected)",
+//        "tooltip-format-disconnected": "MPD (disconnected)"
+//    },
+//    "idle_inhibitor": {
+//        "format": "<span size='x-large' rise='-1500'>{icon}</span>",
+//        "format-icons": {
+//            "activated": "",
+//            "deactivated": ""
+//        }
+//    },
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A, %B %d, %Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    },
+    "cpu": {
+        "format": "<span size='135%' rise='-1500'>{icon}</span>  {usage}%",
+        "tooltip": false,
+	"format-icons": [""]
+    },
+    "memory": {
+        "format": "<span size='135%' rise='-500'>{icon}</span>  {avail:.0f} GB",
+	"format-icons": ["󰄺"]
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format": "<span size='175%' rise='-1000'>{icon}</span> {temperatureC}°",
+        "format-icons": ["󰈸"]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "<span size='150%' rise='-2000'>{icon}</span>",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+	"tooltip": false,
+        "format": "<span size='150%' rise='-4500'>{icon}</span>",
+        "format-charging": "<span size='100%' rise='-4500'></span>",
+        "format-plugged": "<span size='115%' rise='-4500'></span>",
+        "format-alt": "{capacity}% {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+	"format-wifi": "<span size='135%' rise='-2000'>󰖩</span>",
+        "tooltip": false,
+        "format-disconnected": "<span size='150%' rise='-2000'>󱚵</span>",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "<span size='175%' rise='-2000'>{icon}</span> {volume}%{format_source}",
+        "format-bluetooth": "<span size='100%' rise='0'></span> {volume}% {format_source}",
+        "format-bluetooth-muted": "<span size='175%' rise='-5000'>󰂲</span>   <span size='140%' rise='-2500'></span>",
+        "format-muted": "<span size='175%' rise='-5000'>󰝟</span>  <span size='140%' rise='-1500'></span>",
+        "format-source": "  <span size='115%' rise='0'></span>",
+        "format-source-muted": " <span size='115%' rise='0'></span>",
+        "format-icons": {
+            "headphone": "",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+    },
+}
+

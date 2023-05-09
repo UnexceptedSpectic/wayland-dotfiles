@@ -1,0 +1,169 @@
+@define-color foreground {foreground};
+@define-color background {background};
+@define-color cursor {cursor};
+@define-color group_background {color4};
+@define-color urgent_color {color3};
+@define-color workspace_icon {color2};
+@define-color workspace_icon_active {foreground};
+
+@define-color color0 {color0};
+@define-color color1 {color1};
+@define-color color2 {color2};
+@define-color color3 {color3};
+@define-color color4 {color4};
+@define-color color5 {color5};
+@define-color color6 {color6};
+@define-color color7 {color7};
+@define-color color8 {color8};
+@define-color color9 {color9};
+@define-color color10 {color10};
+@define-color color11 {color11};
+@define-color color12 {color12};
+@define-color color13 {color13};
+@define-color color14 {color14};
+@define-color color15 {color15};
+
+* {{
+    font-family: monospace, sans-serif;
+    font-size: 10px;
+}}
+
+window#waybar {{
+    background-color: @background;
+    border-bottom: none;
+    color: @foreground;
+    transition-property: background-color;
+    transition-duration: .5s;
+}}
+
+window#waybar.hidden {{
+    opacity: 0.2;
+}}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {{
+    background: none;
+}}
+
+button {{
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: none;
+    border: none;
+    border-radius: 3px;
+}}
+
+#workspaces button {{
+    padding: 0 .7rem;
+    margin: 0 .5rem;
+    background-color: transparent;
+    color: #ffffff;
+}}
+
+#workspaces button label {{
+    color: @workspace_icon;
+    font-size: 14px;
+}}
+
+#workspaces button:hover label {{
+    color: @foreground;
+}}
+
+#workspaces button:hover:not(.focused) label {{
+    margin-bottom: -2px;
+}}
+
+#workspaces button.focused {{
+    background-color: rgba(255, 255, 255, 0.05);
+}}
+
+#workspaces button.focused label {{
+    color: @workspace_icon_active;
+}}
+#workspaces button.urgent {{
+    background-color: @urgent_color;
+}}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#custom-disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#mpd {{
+    padding: 0 .7rem;
+    color: @foreground;
+    background-color: @group_background;
+}}
+
+#backlight {{
+    font-size: 11px;
+    padding-top: 1px;
+}}
+
+#clock {{
+    margin-left: 1px;
+    font-size: 11px;
+}}
+
+#custom-disk {{
+   margin-right: 1px;
+}}
+
+#clock,
+#memory{{
+    border-radius: 5px 0 0 5px;
+    padding-left: 1rem;
+}}
+
+#language,
+#custom-disk {{
+    border-radius: 0 5px 5px 0;
+    padding-right: 1rem;
+}}
+
+@keyframes blink {{
+    to {{
+        background-color: #ffffff;
+        color: #000000;
+    }}
+}}
+
+#battery.critical:not(.charging) {{
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}}
+
+#network.disconnected {{
+    background-color: @background;
+}}
+
+#temperature.critical {{
+    background-color: #eb4d4b;
+}}
+
+#mpd.disconnected {{
+    background-color: #f53c3c;
+}}
+
+#mpd.stopped {{
+    background-color: #90b1b1;
+}}
+
+#mpd.paused {{
+    background-color: #51a37a;
+}}
+
+#language {{
+    padding: 0 .7rem;
+    background-color: @group_background;
+    font-size: 12px;
+}}
+
