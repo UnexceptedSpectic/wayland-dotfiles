@@ -37,7 +37,7 @@
     exec_always --no-startup-id pgrep -x waybar | xargs kill; waybar
 
     # Clipboard
-    exec_always --no-startup-id wl-paste -t text --watch clipman store
+    exec_always --no-startup-id wl-paste -t text --watch clipman store --max-items=1000
 
 ### Output configuration
 
@@ -90,7 +90,7 @@
 	dwt enabledPOINTER_BUTTON
 	click_method clickfinger
 	natural_scroll disabled
-        scroll_factor 0.5
+        scroll_factor 0.1
     }
 
     # Scroll on mouse middle button click and drag
