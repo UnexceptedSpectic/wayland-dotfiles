@@ -33,4 +33,10 @@
 .config/yay/
 .config/pulse/
 .config/libreoffice/
+.config/deluge/
+.config/figma-linux/
+.config/zoom.conf
+.config/zoomus.conf
+.zoom/
+.thunderbird/
 
