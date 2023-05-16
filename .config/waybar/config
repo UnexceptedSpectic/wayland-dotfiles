@@ -131,8 +131,8 @@
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "<span size='175%' rise='-2000'>{icon}</span> {volume}%{format_source}",
-        "format-bluetooth": "<span size='100%' rise='0'></span> {volume}% {format_source}",
-        "format-bluetooth-muted": "<span size='175%' rise='-5000'>󰂲</span>   <span size='140%' rise='-2500'></span>",
+        "format-bluetooth": "<span size='125%' rise='0'></span> {volume}% {format_source}",
+        "format-bluetooth-muted": "<span size='135%' rise='-1500'>󰂲</span>   <span size='115%' rise='-500'></span>",
         "format-muted": "<span size='175%' rise='-5000'>󰝟</span>  <span size='140%' rise='-1500'></span>",
         "format-source": "  <span size='115%' rise='0'></span>",
         "format-source-muted": " <span size='115%' rise='0'></span>",
